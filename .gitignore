@@ -1,0 +1,9 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.vite
+
+# resume carries the phone number; the site publishes email only
+Mahir_Babbar.pdf

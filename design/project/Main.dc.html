@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mahir Babbar — portfolio, desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#07090B}
+a{color:#5CF28A}a:hover{color:#E7EEE9}
+@keyframes mb-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes mb-flow{to{stroke-dashoffset:-20}}
+.mb-card{transition:transform .25s ease,border-color .25s ease}
+.mb-card:hover{transform:translateY(-3px);border-color:rgba(92,242,138,.55)!important}
+.mb-chip{transition:color .15s ease,border-color .15s ease}
+.mb-chip:hover{border-color:#5CF28A!important;color:#5CF28A!important}
+.mb-nav:hover{color:#E7EEE9!important;background:#121719}
+.mb-flow{stroke-dasharray:4 8;animation:mb-flow 1.2s linear infinite}
+</style>
+</helmet>
+<div id="top" style="font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; color: #E7EEE9; background: #07090B; position: relative; overflow: hidden; min-height: 100%">
+
+  <sc-if value="{{scanlines}}" hint-placeholder-val="{{ true }}">
+    <div aria-hidden="true" style="pointer-events: none; position: absolute; inset: 0; z-index: 6; background: repeating-linear-gradient(0deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.22) 3px); opacity: 0.55"></div>
+  </sc-if>
+
+  <header style="position: sticky; top: 0; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 40px; height: 56px; border-bottom: 1px solid #1C2327; background: rgba(7,9,11,0.84); backdrop-filter: blur(10px)">
+    <a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #E7EEE9; font-size: 13px; font-weight: 500">
+      <span aria-hidden="true" style="width: 9px; height: 9px; border-radius: 2px; background: {{accent}}; display: inline-block"></span>
+      <span>mahir@nitj</span><span style="color: #5B6B64">:~$</span>
+    </a>
+    <nav aria-label="Primary" style="display: flex; gap: 2px; flex-wrap: wrap">
+      <a class="mb-nav" href="#about" style="padding: 8px 12px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #8FA39A; text-decoration: none; border-radius: 4px"><span style="color: {{accent}}; margin-right: 6px">01</span>about</a>
+      <a class="mb-nav" href="#experience" style="padding: 8px 12px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #8FA39A; text-decoration: none; border-radius: 4px"><span style="color: {{accent}}; margin-right: 6px">02</span>experience</a>
+      <a class="mb-nav" href="#projects" style="padding: 8px 12px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #8FA39A; text-decoration: none; border-radius: 4px"><span style="color: {{accent}}; margin-right: 6px">03</span>projects</a>
+      <a class="mb-nav" href="#skills" style="padding: 8px 12px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #8FA39A; text-decoration: none; border-radius: 4px"><span style="color: {{accent}}; margin-right: 6px">04</span>skills</a>
+      <a class="mb-nav" href="#contact" style="padding: 8px 12px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #8FA39A; text-decoration: none; border-radius: 4px"><span style="color: {{accent}}; margin-right: 6px">05</span>contact</a>
+    </nav>
+    <div style="display: flex; gap: 8px; align-items: center">
+      <a href="https://github.com/MAHIR-BABBAR" style="font-size: 12px; color: #8FA39A; text-decoration: none; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 10px">gh</a>
+      <a href="https://www.linkedin.com/in/mahir-babbar-54374a315" style="font-size: 12px; color: #8FA39A; text-decoration: none; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 10px">in</a>
+      <a href="https://leetcode.com/u/spartaXmahir/" style="font-size: 12px; color: #8FA39A; text-decoration: none; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 10px">lc</a>
+      <a href="mailto:mahirbabbar1611@gmail.com" style="font-size: 12px; color: #07090B; background: {{accent}}; text-decoration: none; border-radius: 4px; padding: 7px 12px; font-weight: 700; letter-spacing: 0.04em">hire me</a>
+    </div>
+  </header>
+
+  <section aria-label="Intro" style="position: relative; min-height: 860px; overflow: hidden">
+    <canvas id="mb-hero-field" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block"></canvas>
+    <div aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 55%; background: linear-gradient(90deg, rgba(7,9,11,0.92) 0%, rgba(7,9,11,0.55) 60%, rgba(7,9,11,0) 100%); pointer-events: none"></div>
+
+    <div style="position: relative; z-index: 2; max-width: 1360px; margin: 0 auto; padding: 96px 40px 0; display: flex; flex-direction: column; gap: 28px">
+      <div style="font-size: 13px; color: #8FA39A; display: flex; gap: 8px; align-items: center">
+        <span style="color: {{accent}}">mahir@nitj</span><span style="color: #5B6B64">:~$</span><span>whoami</span>
+      </div>
+
+      <div style="position: relative; align-self: flex-start">
+        <h1 style="margin: 0; font-family: 'Syne', 'JetBrains Mono', sans-serif; font-weight: 800; font-size: 124px; line-height: 0.88; letter-spacing: -0.035em; text-transform: uppercase; color: #E7EEE9; position: relative; z-index: 1; white-space: nowrap">Mahir<br>Babbar</h1>
+        <div aria-hidden="true" style="position: absolute; left: 12px; top: 12px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 124px; line-height: 0.88; letter-spacing: -0.035em; text-transform: uppercase; color: transparent; -webkit-text-stroke: 1px {{accentLine}}; z-index: 0; pointer-events: none; white-space: nowrap">Mahir<br>Babbar</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px">
+        <div style="font-size: 18px; font-weight: 500; color: #E7EEE9"><span style="color: #5B6B64">// </span>Backend &amp; Systems Engineer</div>
+        <div style="font-size: 13px; color: #8FA39A">B.Tech IT '28 · Dr. B. R. Ambedkar NIT Jalandhar · CGPA 9.2</div>
+      </div>
+
+      <p style="margin: 0; max-width: 620px; font-size: 15px; line-height: 1.7; color: #B9C6BF">
+        I design backend services, agent benchmarks and retrieval systems, and I write the tests that keep them honest.<span aria-hidden="true" style="display: inline-block; width: 9px; height: 18px; background: {{accent}}; vertical-align: -3px; margin-left: 6px; animation: mb-blink 1s steps(1) infinite"></span>
+      </p>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center">
+        <a href="#projects" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; background: {{accent}}; color: #07090B; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 4px">./projects<span aria-hidden="true">↓</span></a>
+        <a href="https://github.com/MAHIR-BABBAR" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; border: 1px solid {{accentLine}}; color: {{accent}}; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 4px">github.com/MAHIR-BABBAR</a>
+        <span style="font-size: 12px; color: #5B6B64; margin-left: 8px">open to SWE internships · 2027</span>
+      </div>
+    </div>
+
+    <div aria-hidden="true" style="position: absolute; right: 40px; top: 84px; z-index: 2; display: flex; flex-direction: column; gap: 6px; font-size: 11px; color: #5B6B64; text-align: right; letter-spacing: 0.06em">
+      <span>fig. 01 — container field</span>
+      <span>144 nodes · 1 draw call</span>
+      <span>cursor → glow · scroll → tilt</span>
+    </div>
+
+    <div style="position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; border-top: 1px solid #1C2327; background: rgba(7,9,11,0.72); backdrop-filter: blur(6px)">
+      <div style="max-width: 1360px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0">
+        <div style="padding: 22px 0; border-right: 1px solid #1C2327; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8FA39A">LeetCode contest rating</span>
+          <span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 34px; line-height: 1; color: #E7EEE9">2019</span>
+        </div>
+        <div style="padding: 22px 24px; border-right: 1px solid #1C2327; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8FA39A">global rank</span>
+          <span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 34px; line-height: 1; color: #E7EEE9">top 2.4%</span>
+        </div>
+        <div style="padding: 22px 24px; border-right: 1px solid #1C2327; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8FA39A">problems solved</span>
+          <span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 34px; line-height: 1; color: #E7EEE9">890</span>
+        </div>
+        <div style="padding: 22px 24px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8FA39A">benchmark tasks shipped</span>
+          <span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 34px; line-height: 1; color: #E7EEE9">65+</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-h" style="position: relative; z-index: 2; max-width: 1360px; margin: 0 auto; padding: 120px 40px 0">
+    <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; font-size: 12px; letter-spacing: 0.14em">
+      <span style="color: {{accent}}">01</span><span style="color: #5B6B64">/</span><span style="color: #8FA39A; letter-spacing: 0; font-size: 13px">$ cat about.md</span>
+    </div>
+    <h2 id="about-h" style="margin: 0 0 40px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 56px; letter-spacing: -0.02em; line-height: 1; color: #E7EEE9">About</h2>
+
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: stretch">
+      <div style="flex: 999 1 560px; min-width: 0; background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; overflow: hidden">
+        <div style="display: flex; align-items: center; gap: 0; border-bottom: 1px solid #1C2327; background: #0A0D10">
+          <span style="padding: 10px 16px; font-size: 12px; color: #E7EEE9; border-right: 1px solid #1C2327; background: #0D1114; border-top: 2px solid {{accent}}">about.md</span>
+          <span style="padding: 10px 16px; font-size: 12px; color: #5B6B64; border-right: 1px solid #1C2327">README</span>
+          <span style="margin-left: auto; padding: 10px 16px; font-size: 11px; color: #5B6B64">~/mahir · utf-8 · ln 1, col 1</span>
+        </div>
+        <div style="padding: 28px 32px; display: flex; flex-direction: column; gap: 18px; font-size: 15px; line-height: 1.75; color: #B9C6BF">
+          <p style="margin: 0">I'm a third-year Information Technology student at NIT Jalandhar who likes the parts of software where correctness is non-negotiable: payment state machines, idempotent APIs, retrieval pipelines with measurable gains, and benchmark tasks whose verifiers can't be gamed.</p>
+          <p style="margin: 0">Right now I author Terminal-Bench tasks for Handshake AI, building Docker environments, oracle solutions and hidden pytest verifiers that score only what an agent actually leaves on disk. Before that I architected Terminal-Bench 2 evaluations at AirDawg Labs. In summer 2027 I join HSBC Technology India as a Technology Intern.</p>
+          <p style="margin: 0">Off the clock I solve LeetCode (contest rating 2019) and represent 120+ IT students as Class and Intern Representative.</p>
+        </div>
+      </div>
+
+      <div style="flex: 1 1 320px; min-width: 0; background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 24px 28px; display: flex; flex-direction: column; gap: 14px; font-size: 13px">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5B6B64; margin-bottom: 4px">$ status --short</div>
+        <div style="display: flex; gap: 16px; border-bottom: 1px solid #1C2327; padding-bottom: 12px"><span style="width: 72px; flex: none; color: {{accent}}">now</span><span style="color: #E7EEE9">Terminal-Bench task author @ Handshake AI</span></div>
+        <div style="display: flex; gap: 16px; border-bottom: 1px solid #1C2327; padding-bottom: 12px"><span style="width: 72px; flex: none; color: {{accent}}">next</span><span style="color: #E7EEE9">Technology Intern @ HSBC · Jun 2027</span></div>
+        <div style="display: flex; gap: 16px; border-bottom: 1px solid #1C2327; padding-bottom: 12px"><span style="width: 72px; flex: none; color: {{accent}}">degree</span><span style="color: #E7EEE9">B.Tech IT · NIT Jalandhar · 2024–2028</span></div>
+        <div style="display: flex; gap: 16px; border-bottom: 1px solid #1C2327; padding-bottom: 12px"><span style="width: 72px; flex: none; color: {{accent}}">cgpa</span><span style="color: #E7EEE9">9.2</span></div>
+        <div style="display: flex; gap: 16px; border-bottom: 1px solid #1C2327; padding-bottom: 12px"><span style="width: 72px; flex: none; color: {{accent}}">base</span><span style="color: #E7EEE9">Jalandhar, Punjab, IN</span></div>
+        <div style="display: flex; gap: 16px"><span style="width: 72px; flex: none; color: {{accent}}">courses</span><span style="color: #E7EEE9">DSA · OOP · OS · Networks · DBMS</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h" style="position: relative; z-index: 2; max-width: 1360px; margin: 0 auto; padding: 120px 40px 0">
+    <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; font-size: 12px; letter-spacing: 0.14em">
+      <span style="color: {{accent}}">02</span><span style="color: #5B6B64">/</span><span style="color: #8FA39A; letter-spacing: 0; font-size: 13px">$ git log --graph --oneline</span>
+    </div>
+    <h2 id="exp-h" style="margin: 0 0 40px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 56px; letter-spacing: -0.02em; line-height: 1; color: #E7EEE9">Experience</h2>
+
+    <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #1C2327">
+
+      <article style="display: flex; gap: 40px; padding: 40px 0; border-bottom: 1px solid #1C2327; position: relative">
+        <div style="flex: none; width: 260px; display: flex; flex-direction: column; gap: 8px">
+          <div style="display: flex; align-items: center; gap: 12px">
+            <span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #F5B649; background: #07090B; display: inline-block"></span>
+            <span style="font-size: 12px; color: #F5B649">HEAD → main</span>
+          </div>
+          <div style="font-size: 13px; color: #8FA39A; padding-left: 24px">Jun 2027 – Jul 2027</div>
+          <div style="font-size: 12px; color: #5B6B64; padding-left: 24px">India</div>
+        </div>
+        <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+            <h3 style="margin: 0; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; color: #E7EEE9">HSBC</h3>
+            <span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #F5B649; border: 1px solid rgba(245,182,73,0.45); border-radius: 3px; padding: 3px 8px">incoming</span>
+          </div>
+          <div style="font-size: 14px; color: #8FA39A">Technology Intern</div>
+          <p style="margin: 4px 0 0; font-size: 14px; line-height: 1.7; color: #B9C6BF; max-width: 820px">Two-month technology internship with HSBC Technology India, the bank's 23,000+ person in-house capability centre (Pune, Hyderabad, Bengaluru) that builds technology for HSBC's businesses worldwide.</p>
+        </div>
+      </article>
+
+      <article style="display: flex; gap: 40px; padding: 40px 0; border-bottom: 1px solid #1C2327">
+        <div style="flex: none; width: 260px; display: flex; flex-direction: column; gap: 8px">
+          <div style="display: flex; align-items: center; gap: 12px">
+            <span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid {{accent}}; background: #07090B; display: inline-block"></span>
+            <span style="font-size: 12px; color: {{accent}}">a3f9c1e</span>
+          </div>
+          <div style="font-size: 13px; color: #8FA39A; padding-left: 24px">Jul 2026 – Oct 2026</div>
+          <div style="font-size: 12px; color: #5B6B64; padding-left: 24px">Freelance · Remote</div>
+        </div>
+        <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+          <h3 style="margin: 0; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; color: #E7EEE9">Handshake AI</h3>
+          <div style="font-size: 14px; color: #8FA39A">Terminal-Bench Task Author</div>
+          <ul style="margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.7; color: #B9C6BF; max-width: 820px">
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>Authored Terminal-Bench 3.0/4.0-standard tasks (the Stanford / Laude Institute / Harbor agent benchmark); 65+ tasks accepted across scientific computing, security forensics, cryptography and systems programming.</span></li>
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>Built each task end-to-end: agent-facing instruction, digest-pinned Docker environment, oracle reference solution, and a hidden pytest verifier that runs in a separate grader container and scores only on-disk artifacts with a binary reward.</span></li>
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>Designed tasks around real multi-step terminal work rather than lookup, with verifiers that accept any valid approach while rejecting empty, shortcut and reward-hacked outputs.</span></li>
+          </ul>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px">
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Docker</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">pytest</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Bash</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Python</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Harbor</span>
+          </div>
+        </div>
+      </article>
+
+      <article style="display: flex; gap: 40px; padding: 40px 0; border-bottom: 1px solid #1C2327">
+        <div style="flex: none; width: 260px; display: flex; flex-direction: column; gap: 8px">
+          <div style="display: flex; align-items: center; gap: 12px">
+            <span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid {{accent}}; background: #07090B; display: inline-block"></span>
+            <span style="font-size: 12px; color: {{accent}}">7b2d04f</span>
+          </div>
+          <div style="font-size: 13px; color: #8FA39A; padding-left: 24px">Feb 2026</div>
+          <div style="font-size: 12px; color: #5B6B64; padding-left: 24px">Freelance · Remote</div>
+        </div>
+        <div style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+          <h3 style="margin: 0; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; color: #E7EEE9">AirDawg Labs</h3>
+          <div style="font-size: 14px; color: #8FA39A">AI Systems Evaluator — Terminal-Bench 2 Tasks</div>
+          <ul style="margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.7; color: #B9C6BF; max-width: 820px">
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>Architected Terminal-Bench 2-format containerized software engineering tasks measuring reasoning across 3 frontier AI model families, authoring Dockerfiles and sandbox configurations for deterministic, isolated execution.</span></li>
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>Reverse-engineered merged pull requests from large open-source Python repositories into complex, multi-file coding challenges with verifiable test suites.</span></li>
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>Implemented Python unit tests and validation pipelines that auto-score AI-generated solutions; validated 100+ shipped evaluations for accuracy and solvability.</span></li>
+          </ul>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px">
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Docker</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Python</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Prompt engineering</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="proj-h" style="position: relative; z-index: 2; max-width: 1360px; margin: 0 auto; padding: 120px 40px 0">
+    <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; font-size: 12px; letter-spacing: 0.14em">
+      <span style="color: {{accent}}">03</span><span style="color: #5B6B64">/</span><span style="color: #8FA39A; letter-spacing: 0; font-size: 13px">$ ls -la ~/projects</span>
+    </div>
+    <h2 id="proj-h" style="margin: 0 0 40px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 56px; letter-spacing: -0.02em; line-height: 1; color: #E7EEE9">Projects</h2>
+
+    <div style="display: flex; flex-direction: column; gap: 24px">
+
+      <article class="mb-card" style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 36px 40px; display: flex; gap: 40px; flex-wrap: wrap; align-items: center">
+        <div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
+            <span style="font-size: 12px; color: #5B6B64">drwxr-xr-x</span>
+            <h3 style="margin: 0; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.02em; color: #E7EEE9">EduElderly</h3>
+            <span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: {{accent}}; border: 1px solid {{accentLine}}; border-radius: 3px; padding: 3px 8px">featured</span>
+          </div>
+          <div style="font-size: 13px; color: #8FA39A">10-service Node.js backend monorepo behind an API gateway</div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.7; color: #B9C6BF">
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>Gateway handles JWT validation, rate limiting, CORS and proxy routing for auth, user, course, enrollment, quiz, payment, notification, admin and certificate services.</span></li>
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>Payments run on a guarded order state machine (pending → success / failed → refunded) with server-side amount validation against catalog price.</span></li>
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>Idempotent order creation via unique-index conflicts (HTTP 409); gateway-issued service keys stop header-spoofing privilege escalation.</span></li>
+          </ul>
+          <div style="display: flex; gap: 24px; flex-wrap: wrap; padding: 14px 0; border-top: 1px solid #1C2327; border-bottom: 1px solid #1C2327">
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 24px; color: {{accent}}">10</span><span style="font-size: 11px; color: #8FA39A; letter-spacing: 0.08em; text-transform: uppercase">services</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 24px; color: {{accent}}">168</span><span style="font-size: 11px; color: #8FA39A; letter-spacing: 0.08em; text-transform: uppercase">Jest + Supertest tests</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 24px; color: {{accent}}">409</span><span style="font-size: 11px; color: #8FA39A; letter-spacing: 0.08em; text-transform: uppercase">on duplicate orders</span></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Node.js</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Express</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">MongoDB</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Redis</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Docker</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Jest</span>
+            <a href="https://github.com/MAHIR-BABBAR/EduElderly" style="margin-left: auto; font-size: 13px; color: {{accent}}; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px">view source <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <figure aria-hidden="true" style="flex: 0 1 440px; min-width: 0; margin: 0; background: #07090B; border: 1px solid #1C2327; border-radius: 6px; padding: 16px">
+          <svg viewBox="0 0 420 240" width="100%" height="240" style="display: block; font-family: inherit">
+            <rect x="8" y="98" width="64" height="40" rx="4" fill="#0D1114" stroke="#2A343A"></rect>
+            <text x="40" y="122" text-anchor="middle" font-size="10" fill="#8FA39A">client</text>
+            <line x1="72" y1="118" x2="124" y2="118" stroke="#2A343A"></line>
+            <line class="mb-flow" x1="72" y1="118" x2="124" y2="118" stroke="{{accent}}"></line>
+            <rect x="124" y="74" width="96" height="88" rx="4" fill="#0D1114" stroke="{{accentLine}}"></rect>
+            <text x="172" y="100" text-anchor="middle" font-size="11" font-weight="700" fill="#E7EEE9">API Gateway</text>
+            <text x="172" y="118" text-anchor="middle" font-size="9" fill="#8FA39A">JWT · rate limit</text>
+            <text x="172" y="132" text-anchor="middle" font-size="9" fill="#8FA39A">CORS · proxy</text>
+            <text x="172" y="150" text-anchor="middle" font-size="9" fill="{{accent}}">service keys</text>
+            <line x1="220" y1="118" x2="252" y2="118" stroke="#2A343A"></line>
+            <line x1="252" y1="22" x2="252" y2="214" stroke="#2A343A"></line>
+            <line x1="252" y1="22" x2="280" y2="22" stroke="#2A343A"></line>
+            <line x1="252" y1="46" x2="280" y2="46" stroke="#2A343A"></line>
+            <line x1="252" y1="70" x2="280" y2="70" stroke="#2A343A"></line>
+            <line x1="252" y1="94" x2="280" y2="94" stroke="#2A343A"></line>
+            <line x1="252" y1="118" x2="280" y2="118" stroke="#2A343A"></line>
+            <line x1="252" y1="142" x2="280" y2="142" stroke="#2A343A"></line>
+            <line x1="252" y1="166" x2="280" y2="166" stroke="#2A343A"></line>
+            <line x1="252" y1="190" x2="280" y2="190" stroke="#2A343A"></line>
+            <line x1="252" y1="214" x2="280" y2="214" stroke="#2A343A"></line>
+            <line class="mb-flow" x1="220" y1="118" x2="252" y2="118" stroke="{{accent}}"></line>
+            <line class="mb-flow" x1="252" y1="118" x2="252" y2="22" stroke="{{accent}}"></line>
+            <line class="mb-flow" x1="252" y1="118" x2="252" y2="214" stroke="{{accent}}"></line>
+            <rect x="280" y="12" width="128" height="20" rx="3" fill="#0D1114" stroke="#2A343A"></rect><text x="290" y="26" font-size="9" fill="#B9C6BF">auth</text>
+            <rect x="280" y="36" width="128" height="20" rx="3" fill="#0D1114" stroke="#2A343A"></rect><text x="290" y="50" font-size="9" fill="#B9C6BF">user</text>
+            <rect x="280" y="60" width="128" height="20" rx="3" fill="#0D1114" stroke="#2A343A"></rect><text x="290" y="74" font-size="9" fill="#B9C6BF">course</text>
+            <rect x="280" y="84" width="128" height="20" rx="3" fill="#0D1114" stroke="#2A343A"></rect><text x="290" y="98" font-size="9" fill="#B9C6BF">enrollment</text>
+            <rect x="280" y="108" width="128" height="20" rx="3" fill="#0D1114" stroke="{{accentLine}}"></rect><text x="290" y="122" font-size="9" fill="{{accent}}">payment · state machine</text>
+            <rect x="280" y="132" width="128" height="20" rx="3" fill="#0D1114" stroke="#2A343A"></rect><text x="290" y="146" font-size="9" fill="#B9C6BF">quiz</text>
+            <rect x="280" y="156" width="128" height="20" rx="3" fill="#0D1114" stroke="#2A343A"></rect><text x="290" y="170" font-size="9" fill="#B9C6BF">notification</text>
+            <rect x="280" y="180" width="128" height="20" rx="3" fill="#0D1114" stroke="#2A343A"></rect><text x="290" y="194" font-size="9" fill="#B9C6BF">admin</text>
+            <rect x="280" y="204" width="128" height="20" rx="3" fill="#0D1114" stroke="#2A343A"></rect><text x="290" y="218" font-size="9" fill="#B9C6BF">certificate</text>
+          </svg>
+          <figcaption style="margin-top: 10px; font-size: 11px; color: #5B6B64; letter-spacing: 0.06em">fig. 02 — request path through the gateway</figcaption>
+        </figure>
+      </article>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+
+        <article class="mb-card" style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 32px 36px; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
+            <span style="font-size: 12px; color: #5B6B64">drwxr-xr-x</span>
+            <h3 style="margin: 0; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #E7EEE9">CRAG</h3>
+          </div>
+          <div style="font-size: 13px; color: #8FA39A">Hybrid retrieval service for AI agents · FastAPI socket</div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.7; color: #B9C6BF">
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>Document parsing, parent/child chunking, embedding, SQLite indexing and context packing with citations, in 6.1K+ lines of strictly typed Python.</span></li>
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>Fuses SQLite FTS5 BM25 with dense vector similarity through Reciprocal Rank Fusion.</span></li>
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>Optional key auth, path-whitelisted indexing, Docker Compose demo, GitHub Actions CI.</span></li>
+          </ul>
+          <figure aria-hidden="true" style="margin: 0; background: #07090B; border: 1px solid #1C2327; border-radius: 6px; padding: 14px">
+            <svg viewBox="0 0 520 150" width="100%" height="150" style="display: block; font-family: inherit">
+              <text x="12" y="18" font-size="10" fill="#8FA39A">BM25 · FTS5</text>
+              <rect x="12" y="28" width="110" height="8" rx="2" fill="#2A343A"></rect>
+              <rect x="12" y="42" width="84" height="8" rx="2" fill="#2A343A"></rect>
+              <rect x="12" y="56" width="64" height="8" rx="2" fill="#2A343A"></rect>
+              <rect x="12" y="70" width="40" height="8" rx="2" fill="#2A343A"></rect>
+              <text x="12" y="104" font-size="10" fill="#8FA39A">dense · cosine</text>
+              <rect x="12" y="114" width="96" height="8" rx="2" fill="#2A343A"></rect>
+              <rect x="12" y="128" width="72" height="8" rx="2" fill="#2A343A"></rect>
+              <path d="M126 52 C 180 52, 180 78, 230 78" fill="none" stroke="#2A343A"></path>
+              <path d="M112 124 C 180 124, 180 78, 230 78" fill="none" stroke="#2A343A"></path>
+              <path class="mb-flow" d="M126 52 C 180 52, 180 78, 230 78" fill="none" stroke="{{accent}}"></path>
+              <path class="mb-flow" d="M112 124 C 180 124, 180 78, 230 78" fill="none" stroke="{{accent}}"></path>
+              <rect x="230" y="56" width="64" height="44" rx="4" fill="#0D1114" stroke="{{accentLine}}"></rect>
+              <text x="262" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="#E7EEE9">RRF</text>
+              <text x="262" y="90" text-anchor="middle" font-size="8" fill="#8FA39A">1/(k+rank)</text>
+              <line x1="294" y1="78" x2="340" y2="78" stroke="#2A343A"></line>
+              <line class="mb-flow" x1="294" y1="78" x2="340" y2="78" stroke="{{accent}}"></line>
+              <text x="348" y="40" font-size="10" fill="#8FA39A">BEIR SciFact</text>
+              <text x="348" y="66" font-size="10" fill="#B9C6BF">Hit@10</text>
+              <text x="420" y="66" font-size="10" fill="#5B6B64">0.777</text>
+              <text x="462" y="66" font-size="10" fill="#8FA39A">→</text>
+              <text x="478" y="66" font-size="11" font-weight="700" fill="{{accent}}">0.857</text>
+              <text x="348" y="90" font-size="10" fill="#B9C6BF">nDCG@10</text>
+              <text x="478" y="90" font-size="11" font-weight="700" fill="{{accent}}">0.690</text>
+              <text x="348" y="118" font-size="9" fill="#5B6B64">195 pytest · CI green</text>
+            </svg>
+            <figcaption style="margin-top: 8px; font-size: 11px; color: #5B6B64; letter-spacing: 0.06em">fig. 03 — rank fusion</figcaption>
+          </figure>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Python</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">FastAPI</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">SQLite</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Docker</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">pytest</span>
+            <a href="https://github.com/MAHIR-BABBAR/CRAG" style="margin-left: auto; font-size: 13px; color: {{accent}}; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px">view source <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="mb-card" style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 32px 36px; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
+            <span style="font-size: 12px; color: #5B6B64">drwxr-xr-x</span>
+            <h3 style="margin: 0; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; color: #E7EEE9">Attack-Sim GAN</h3>
+          </div>
+          <div style="font-size: 13px; color: #8FA39A">Generative adversarial network for cybersecurity attack simulation</div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.7; color: #B9C6BF">
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>GAN trained on the DNN-EdgeIIoT dataset synthesizes attack samples to correct class imbalance.</span></li>
+            <li style="display: flex; gap: 12px"><span style="color: {{accent}}; flex: none">›</span><span>A Random Forest trained on the augmented data reaches 97.19% accuracy, an 8.7% gain over real data alone.</span></li>
+          </ul>
+          <figure aria-hidden="true" style="margin: 0; background: #07090B; border: 1px solid #1C2327; border-radius: 6px; padding: 14px">
+            <svg viewBox="0 0 520 150" width="100%" height="150" style="display: block; font-family: inherit">
+              <rect x="12" y="52" width="92" height="44" rx="4" fill="#0D1114" stroke="{{accentLine}}"></rect>
+              <text x="58" y="71" text-anchor="middle" font-size="11" font-weight="700" fill="#E7EEE9">Generator</text>
+              <text x="58" y="86" text-anchor="middle" font-size="8" fill="#8FA39A">noise → sample</text>
+              <line x1="104" y1="74" x2="176" y2="74" stroke="#2A343A"></line>
+              <line class="mb-flow" x1="104" y1="74" x2="176" y2="74" stroke="{{accent}}"></line>
+              <text x="140" y="64" text-anchor="middle" font-size="8" fill="#5B6B64">fake</text>
+              <rect x="176" y="52" width="108" height="44" rx="4" fill="#0D1114" stroke="{{accentLine}}"></rect>
+              <text x="230" y="71" text-anchor="middle" font-size="11" font-weight="700" fill="#E7EEE9">Discriminator</text>
+              <text x="230" y="86" text-anchor="middle" font-size="8" fill="#8FA39A">real / fake</text>
+              <line x1="230" y1="18" x2="230" y2="52" stroke="#2A343A"></line>
+              <text x="230" y="12" text-anchor="middle" font-size="8" fill="#5B6B64">DNN-EdgeIIoT (real)</text>
+              <path d="M176 96 C 140 130, 100 130, 58 96" fill="none" stroke="#2A343A"></path>
+              <path class="mb-flow" d="M176 96 C 140 130, 100 130, 58 96" fill="none" stroke="#F5B649"></path>
+              <text x="117" y="136" text-anchor="middle" font-size="8" fill="#5B6B64">gradient feedback</text>
+              <line x1="284" y1="74" x2="340" y2="74" stroke="#2A343A"></line>
+              <line class="mb-flow" x1="284" y1="74" x2="340" y2="74" stroke="{{accent}}"></line>
+              <text x="312" y="64" text-anchor="middle" font-size="8" fill="#5B6B64">augmented</text>
+              <rect x="340" y="52" width="92" height="44" rx="4" fill="#0D1114" stroke="#2A343A"></rect>
+              <text x="386" y="71" text-anchor="middle" font-size="11" font-weight="700" fill="#E7EEE9">Random Forest</text>
+              <text x="386" y="86" text-anchor="middle" font-size="8" fill="#8FA39A">classifier</text>
+              <text x="446" y="68" font-size="14" font-weight="700" fill="{{accent}}">97.19%</text>
+              <text x="446" y="86" font-size="9" fill="#8FA39A">+8.7 pts</text>
+            </svg>
+            <figcaption style="margin-top: 8px; font-size: 11px; color: #5B6B64; letter-spacing: 0.06em">fig. 04 — adversarial loop</figcaption>
+          </figure>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-height: 44px">
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">Python</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">TensorFlow</span>
+            <span class="mb-chip" style="font-size: 11px; color: #8FA39A; border: 1px solid #1C2327; border-radius: 4px; padding: 4px 10px">scikit-learn</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-h" style="position: relative; z-index: 2; max-width: 1360px; margin: 0 auto; padding: 120px 40px 0">
+    <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; font-size: 12px; letter-spacing: 0.14em">
+      <span style="color: {{accent}}">04</span><span style="color: #5B6B64">/</span><span style="color: #8FA39A; letter-spacing: 0; font-size: 13px">$ tree ~/skills -L 1</span>
+    </div>
+    <h2 id="skills-h" style="margin: 0 0 40px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 56px; letter-spacing: -0.02em; line-height: 1; color: #E7EEE9">Skills</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+      <div style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 24px 28px; display: flex; flex-direction: column; gap: 14px">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: {{accent}}">languages/</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Python</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">C / C++</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">JavaScript</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Go</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Rust</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Bash</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">SQL</span>
+        </div>
+      </div>
+      <div style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 24px 28px; display: flex; flex-direction: column; gap: 14px">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: {{accent}}">backend-and-apis/</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Node.js</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Express.js</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">FastAPI</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">REST APIs</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">API Gateway</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">JWT</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">React</span>
+        </div>
+      </div>
+      <div style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 24px 28px; display: flex; flex-direction: column; gap: 14px">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: {{accent}}">data/</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">MongoDB</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Redis</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">SQLite</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Relational &amp; NoSQL</span>
+        </div>
+      </div>
+      <div style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 24px 28px; display: flex; flex-direction: column; gap: 14px">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: {{accent}}">devops/</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Docker</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Docker Compose</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Git</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Linux</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">GitHub Actions CI/CD</span>
+        </div>
+      </div>
+      <div style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 24px 28px; display: flex; flex-direction: column; gap: 14px">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: {{accent}}">testing-and-quality/</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">pytest</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Jest</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Supertest</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">mypy</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Unit &amp; integration testing</span>
+        </div>
+      </div>
+      <div style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 24px 28px; display: flex; flex-direction: column; gap: 14px">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: {{accent}}">concepts/</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Microservices</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Distributed systems</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">System design</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Idempotency</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Payment workflows</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Secure coding</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Prompt engineering</span>
+          <span class="mb-chip" style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">DSA · OOP · OS · Networks · DBMS</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
+      <div class="mb-card" style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+        <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8FA39A">achievements.log · 1</span>
+        <span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 44px; line-height: 1; color: {{accent}}">2019</span>
+        <span style="font-size: 13px; color: #E7EEE9">LeetCode contest rating · top 2.4% globally</span>
+        <a href="https://leetcode.com/u/spartaXmahir/" style="font-size: 12px; color: #8FA39A; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">890 problems solved · leetcode.com/u/spartaXmahir</a>
+      </div>
+      <div class="mb-card" style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+        <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8FA39A">achievements.log · 2</span>
+        <span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 44px; line-height: 1; color: {{accent}}">#2</span>
+        <span style="font-size: 13px; color: #E7EEE9">Runner-up, Speed Quant Challenge (Utkansh '25)</span>
+        <span style="font-size: 12px; color: #8FA39A; min-height: 44px; display: inline-flex; align-items: center">NIT Jalandhar speed programming contest</span>
+      </div>
+      <div class="mb-card" style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+        <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8FA39A">achievements.log · 3</span>
+        <span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 44px; line-height: 1; color: {{accent}}">120+</span>
+        <span style="font-size: 13px; color: #E7EEE9">Class &amp; Intern Representative, IT department</span>
+        <span style="font-size: 12px; color: #8FA39A; min-height: 44px; display: inline-flex; align-items: center">schedules, industrial visits, internship drives</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h" style="position: relative; z-index: 2; max-width: 1360px; margin: 0 auto; padding: 140px 40px 0">
+    <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; font-size: 12px; letter-spacing: 0.14em">
+      <span style="color: {{accent}}">05</span><span style="color: #5B6B64">/</span><span style="color: #8FA39A; letter-spacing: 0; font-size: 13px">$ mail -s "hello" mahir</span>
+    </div>
+    <h2 id="contact-h" style="margin: 0 0 24px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 72px; letter-spacing: -0.03em; line-height: 0.95; color: #E7EEE9; max-width: 900px">Let's build something that passes its tests.</h2>
+    <p style="margin: 0 0 40px; max-width: 560px; font-size: 15px; line-height: 1.7; color: #B9C6BF">Open to backend and systems internships, open-source collaboration, and hard problems. One email away.</p>
+    <a href="mailto:mahirbabbar1611@gmail.com" style="display: inline-flex; align-items: center; gap: 16px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -0.01em; color: {{accent}}; text-decoration: none; border-bottom: 2px solid {{accentLine}}; padding-bottom: 6px; min-height: 44px">mahirbabbar1611@gmail.com</a>
+
+    <div style="margin-top: 48px; display: flex; gap: 12px; flex-wrap: wrap">
+      <a href="https://github.com/MAHIR-BABBAR" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border: 1px solid #1C2327; border-radius: 4px; color: #E7EEE9; font-size: 13px; text-decoration: none"><span style="color: {{accent}}">gh</span>github.com/MAHIR-BABBAR</a>
+      <a href="https://www.linkedin.com/in/mahir-babbar-54374a315" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border: 1px solid #1C2327; border-radius: 4px; color: #E7EEE9; font-size: 13px; text-decoration: none"><span style="color: {{accent}}">in</span>linkedin.com/in/mahir-babbar</a>
+      <a href="https://leetcode.com/u/spartaXmahir/" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border: 1px solid #1C2327; border-radius: 4px; color: #E7EEE9; font-size: 13px; text-decoration: none"><span style="color: {{accent}}">lc</span>leetcode.com/u/spartaXmahir</a>
+    </div>
+  </section>
+
+  <footer style="position: relative; z-index: 2; margin-top: 120px; border-top: 1px solid #1C2327">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 28px 40px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 12px; color: #5B6B64">
+      <span>© 2026 Mahir Babbar · Jalandhar, IN</span>
+      <span>React · Three.js · GSAP · no trackers</span>
+      <span><span style="color: {{accent}}">$</span> exit 0</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#5CF28A","options":["#5CF28A","#F5B649","#5ED3F3"],"section":"Theme"},"scanlines":{"editor":"boolean","default":true,"section":"Theme"},"$preview":{"width":1440,"height":5800}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    this.cv = document.getElementById('mb-hero-field');
+    if (!this.cv || !this.cv.getContext) return;
+    this.ctx = this.cv.getContext('2d');
+    this.m = { x: 0.66, y: 0.5, tx: 0.66, ty: 0.5 };
+    this.t = 0; this.w = 0; this.h = 0; this.dpr = 0;
+    this.reduced = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const NX = 9, NY = 4, NZ = 4, S = 1.5;
+    this.grid = { NX: NX, NY: NY, NZ: NZ, S: S };
+    this.cubes = [];
+    let seed = 7;
+    const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+    for (let ix = 0; ix < NX; ix++) for (let iy = 0; iy < NY; iy++) for (let iz = 0; iz < NZ; iz++) {
+      this.cubes.push({ x: (ix - (NX - 1) / 2) * S, y: (iy - (NY - 1) / 2) * S, z: (iz - (NZ - 1) / 2) * S,
+        ph: rnd() * 6.283, sp: 0.25 + rnd() * 0.45, sz: 0.26 + rnd() * 0.14, ax: rnd() * 6.283 });
+    }
+    this.signals = [];
+    for (let i = 0; i < 18; i++) this.signals.push({ iy: Math.floor(rnd() * NY), iz: Math.floor(rnd() * NZ), p: rnd(), v: 0.08 + rnd() * 0.12 });
+    this.onMove = (e) => { const r = this.cv.getBoundingClientRect(); if (!r.width || !r.height) return; this.m.tx = (e.clientX - r.left) / r.width; this.m.ty = (e.clientY - r.top) / r.height; };
+    this.onLeave = () => { this.m.tx = 0.66; this.m.ty = 0.5; };
+    window.addEventListener('mousemove', this.onMove);
+    document.addEventListener('mouseleave', this.onLeave);
+    if (this.reduced) { this.frame(0.016); return; }
+    this.last = performance.now();
+    const loop = (now) => { this.raf = requestAnimationFrame(loop); const dt = Math.min(0.05, (now - this.last) / 1000); this.last = now; this.frame(dt); };
+    this.raf = requestAnimationFrame(loop);
+  }
+  componentWillUnmount() {
+    if (this.raf) cancelAnimationFrame(this.raf);
+    if (this.onMove) window.removeEventListener('mousemove', this.onMove);
+    if (this.onLeave) document.removeEventListener('mouseleave', this.onLeave);
+  }
+  fit() {
+    const cw = this.cv.offsetWidth, ch = this.cv.offsetHeight;
+    if (!cw || !ch) return false;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    if (cw !== this.w || ch !== this.h || dpr !== this.dpr) {
+      this.w = cw; this.h = ch; this.dpr = dpr;
+      this.cv.width = Math.round(cw * dpr); this.cv.height = Math.round(ch * dpr);
+    }
+    this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return true;
+  }
+  hex(c) {
+    const m = /^#?([0-9a-f]{6})$/i.exec(String(c || '').trim());
+    const n = m ? parseInt(m[1], 16) : 0x5CF28A;
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+  frame(dt) {
+    if (!this.fit()) return;
+    const ctx = this.ctx, W = this.w, H = this.h;
+    this.t += dt;
+    this.m.x += (this.m.tx - this.m.x) * 0.06; this.m.y += (this.m.ty - this.m.y) * 0.06;
+    ctx.clearRect(0, 0, W, H);
+    const A = this.hex(this.props.accent), B = [143, 163, 154];
+    const yaw = 0.62 + (this.m.x - 0.5) * 0.5 + this.t * 0.025;
+    const pitch = -0.32 + (this.m.y - 0.5) * 0.3;
+    const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+    const camZ = 12, f = Math.min(W, H * 1.2) * 0.95;
+    const ox = W * 0.66, oy = H * 0.5;
+    const proj = (x, y, z) => {
+      const x1 = x * cy - z * sy, z1 = x * sy + z * cy;
+      const y2 = y * cp - z1 * sp, z2 = y * sp + z1 * cp;
+      const d = z2 + camZ; const s = f / d;
+      return [ox + x1 * s, oy - y2 * s, d];
+    };
+    const mx = this.m.x * W, my = this.m.y * H;
+    const NX = this.grid.NX, NY = this.grid.NY, NZ = this.grid.NZ, S = this.grid.S;
+    const fy = -((NY - 1) / 2) * S - 1.6, ext = 10.5;
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(' + B[0] + ',' + B[1] + ',' + B[2] + ',0.10)';
+    for (let i = -7; i <= 7; i++) {
+      const a = proj(i * S, fy, -ext), b = proj(i * S, fy, ext), c = proj(-ext, fy, i * S), d = proj(ext, fy, i * S);
+      if (a[2] > 1 && b[2] > 1) { ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
+      if (c[2] > 1 && d[2] > 1) { ctx.beginPath(); ctx.moveTo(c[0], c[1]); ctx.lineTo(d[0], d[1]); ctx.stroke(); }
+    }
+    const E = [[0,1],[1,3],[3,2],[2,0],[4,5],[5,7],[7,6],[6,4],[0,4],[1,5],[2,6],[3,7]];
+    const P = new Array(8);
+    for (let k = 0; k < this.cubes.length; k++) {
+      const c = this.cubes[k];
+      const cc = proj(c.x, c.y, c.z);
+      if (cc[2] < 1.5) continue;
+      const dist = Math.hypot(cc[0] - mx, cc[1] - my);
+      const glow = Math.max(0, 1 - dist / 240);
+      const g = glow * glow;
+      const spin = c.ph + this.t * c.sp * (0.4 + g * 3);
+      const cs = Math.cos(spin), sn = Math.sin(spin), ca = Math.cos(c.ax), sa = Math.sin(c.ax);
+      const sz = c.sz * (1 + g * 0.5);
+      for (let v = 0; v < 8; v++) {
+        const x = (v & 1 ? 1 : -1) * sz, y = (v & 2 ? 1 : -1) * sz, z = (v & 4 ? 1 : -1) * sz;
+        const x1 = x * cs - z * sn, z1 = x * sn + z * cs;
+        const y2 = y * ca - z1 * sa, z2 = y * sa + z1 * ca;
+        P[v] = proj(c.x + x1, c.y + y2, c.z + z2);
+      }
+      const depth = Math.max(0.08, Math.min(1, (20 - cc[2]) / 12));
+      const r = Math.round(B[0] + (A[0] - B[0]) * g), gg = Math.round(B[1] + (A[1] - B[1]) * g), bb = Math.round(B[2] + (A[2] - B[2]) * g);
+      const alpha = (0.22 + 0.75 * g) * depth;
+      ctx.strokeStyle = 'rgba(' + r + ',' + gg + ',' + bb + ',' + alpha.toFixed(3) + ')';
+      ctx.lineWidth = 1 + g * 1.2;
+      ctx.beginPath();
+      for (let e = 0; e < 12; e++) { const p = P[E[e][0]], q = P[E[e][1]]; ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); }
+      ctx.stroke();
+      if (g > 0.35) { ctx.fillStyle = 'rgba(' + A[0] + ',' + A[1] + ',' + A[2] + ',' + (0.5 * g).toFixed(3) + ')'; ctx.beginPath(); ctx.arc(cc[0], cc[1], 2 + g * 2, 0, 6.283); ctx.fill(); }
+    }
+    const x0 = -((NX - 1) / 2) * S - S, x1 = ((NX - 1) / 2) * S + S;
+    for (let i = 0; i < this.signals.length; i++) {
+      const s = this.signals[i];
+      s.p += s.v * dt; if (s.p > 1) s.p -= 1;
+      const y = (s.iy - (NY - 1) / 2) * S, z = (s.iz - (NZ - 1) / 2) * S;
+      const xa = x0 + (x1 - x0) * s.p, xb = x0 + (x1 - x0) * Math.max(0, s.p - 0.06);
+      const a = proj(xa, y, z), b = proj(xb, y, z);
+      if (a[2] < 1.5 || b[2] < 1.5) continue;
+      const depth = Math.max(0.1, Math.min(1, (20 - a[2]) / 12));
+      ctx.strokeStyle = 'rgba(' + A[0] + ',' + A[1] + ',' + A[2] + ',' + (0.55 * depth).toFixed(3) + ')'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(b[0], b[1]); ctx.lineTo(a[0], a[1]); ctx.stroke();
+      ctx.fillStyle = 'rgba(' + A[0] + ',' + A[1] + ',' + A[2] + ',' + (0.9 * depth).toFixed(3) + ')'; ctx.beginPath(); ctx.arc(a[0], a[1], 1.8, 0, 6.283); ctx.fill();
+    }
+    const grd = ctx.createRadialGradient(ox, oy, H * 0.25, ox, oy, Math.max(W, H) * 0.75);
+    grd.addColorStop(0, 'rgba(7,9,11,0)'); grd.addColorStop(1, 'rgba(7,9,11,0.92)');
+    ctx.fillStyle = grd; ctx.fillRect(0, 0, W, H);
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#5CF28A';
+    const rgb = this.hex(accent);
+    return {
+      accent: accent,
+      accentSoft: 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.14)',
+      accentLine: 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.45)',
+      scanlines: this.props.scanlines ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>

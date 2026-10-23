@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Boot sequence — preloader state</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#07090B}
+a{color:#5CF28A}a:hover{color:#E7EEE9}
+@keyframes mb-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; box-sizing: border-box; position: relative; overflow: hidden; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; color: #E7EEE9; background: #07090B">
+
+  <div aria-hidden="true" style="position: absolute; inset: 0; background-image: linear-gradient(rgba(143,163,154,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(143,163,154,0.06) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none"></div>
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(7,9,11,0) 20%, rgba(7,9,11,0.9) 75%); pointer-events: none"></div>
+  <div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-family: 'Syne', sans-serif; font-weight: 800; font-size: 300px; line-height: 0.85; letter-spacing: -0.04em; text-transform: uppercase; color: transparent; -webkit-text-stroke: 1px rgba(92,242,138,0.14); white-space: nowrap; pointer-events: none">MB</div>
+
+  <div style="position: absolute; left: 80px; top: 72px; display: flex; gap: 8px; align-items: center; font-size: 12px; color: #5B6B64">
+    <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 2px; background: {{accent}}; display: inline-block"></span>
+    <span>mahir@nitj</span><span>:~$</span><span style="color: #8FA39A">./portfolio --boot</span>
+  </div>
+
+  <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 760px; display: flex; flex-direction: column; gap: 14px; font-size: 14px; line-height: 1.6">
+    <div style="display: flex; gap: 16px"><span style="color: #5B6B64; width: 92px; flex: none">[ 0.000s ]</span><span style="color: #B9C6BF; flex: 1 1 0">mounting /skills ..........................</span><span style="color: {{accent}}">ok</span></div>
+    <div style="display: flex; gap: 16px"><span style="color: #5B6B64; width: 92px; flex: none">[ 0.212s ]</span><span style="color: #B9C6BF; flex: 1 1 0">loading experience.log (3 entries) ........</span><span style="color: {{accent}}">ok</span></div>
+    <div style="display: flex; gap: 16px"><span style="color: #5B6B64; width: 92px; flex: none">[ 0.418s ]</span><span style="color: #B9C6BF; flex: 1 1 0">indexing ~/projects ......................</span><span style="color: {{accent}}">3 found</span></div>
+    <div style="display: flex; gap: 16px"><span style="color: #5B6B64; width: 92px; flex: none">[ 0.640s ]</span><span style="color: #B9C6BF; flex: 1 1 0">running verifiers ........................</span><span style="color: {{accent}}">168 jest · 195 pytest · PASS</span></div>
+    <div style="display: flex; gap: 16px"><span style="color: #5B6B64; width: 92px; flex: none">[ 0.871s ]</span><span style="color: #B9C6BF; flex: 1 1 0">compiling container field ................</span><span style="color: {{accent}}">144 nodes</span></div>
+    <div style="display: flex; gap: 16px"><span style="color: #5B6B64; width: 92px; flex: none">[ 1.120s ]</span><span style="color: #B9C6BF; flex: 1 1 0">starting renderer ........................</span><span style="color: #F5B649">webgl2<span aria-hidden="true" style="display: inline-block; width: 8px; height: 15px; background: #F5B649; vertical-align: -2px; margin-left: 6px; animation: mb-blink 1s steps(1) infinite"></span></span></div>
+
+    <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 8px">
+      <div style="display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8FA39A"><span>boot</span><span>72%</span></div>
+      <div role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Boot progress" style="height: 6px; background: #121719; border: 1px solid #1C2327; border-radius: 2px; overflow: hidden">
+        <div style="width: 72%; height: 100%; background: {{accent}}"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="position: absolute; left: 80px; bottom: 56px; font-size: 11px; color: #5B6B64; display: flex; gap: 24px">
+    <span>v2026.10</span><span>build 0x5CF28A</span><span>no trackers</span>
+  </div>
+  <button type="button" style="position: absolute; right: 80px; bottom: 44px; height: 44px; padding: 0 18px; background: transparent; border: 1px solid #1C2327; border-radius: 4px; color: #8FA39A; font-family: inherit; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 10px">press any key to skip <span aria-hidden="true" style="color: {{accent}}">→</span></button>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#5CF28A","options":["#5CF28A","#F5B649","#5ED3F3"],"section":"Theme"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#5CF28A' };
+  }
+}
+</script>
+</body>
+</html>

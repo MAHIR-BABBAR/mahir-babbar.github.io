@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Style guide — tokens, type, components</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#07090B}
+a{color:#5CF28A}a:hover{color:#E7EEE9}
+@keyframes mb-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1560px; box-sizing: border-box; padding: 56px 64px; position: relative; overflow: hidden; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; color: #E7EEE9; background: #07090B; display: flex; flex-direction: column; gap: 36px">
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; border-bottom: 1px solid #1C2327; padding-bottom: 20px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: {{accent}}">design tokens · v1</span>
+      <h1 style="margin: 0; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.02em; line-height: 1">Phosphor Terminal</h1>
+    </div>
+    <div style="font-size: 12px; color: #8FA39A; text-align: right; line-height: 1.6">2 typefaces · 1 ground · 2 accents<br>8px grid · radius 4 / 8 · container 1360</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 14px">
+    <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8FA39A">01 · color (contrast vs ink)</div>
+    <div style="display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 72px; border-radius: 6px; background: #07090B; border: 1px solid #1C2327"></div><span style="font-size: 12px">ink</span><span style="font-size: 11px; color: #8FA39A">#07090B · ground</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 72px; border-radius: 6px; background: #0D1114; border: 1px solid #1C2327"></div><span style="font-size: 12px">panel</span><span style="font-size: 11px; color: #8FA39A">#0D1114 · cards</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 72px; border-radius: 6px; background: #121719; border: 1px solid #1C2327"></div><span style="font-size: 12px">panel-2</span><span style="font-size: 11px; color: #8FA39A">#121719 · hover</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 72px; border-radius: 6px; background: #1C2327"></div><span style="font-size: 12px">line</span><span style="font-size: 11px; color: #8FA39A">#1C2327 · rules</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 72px; border-radius: 6px; background: #E7EEE9"></div><span style="font-size: 12px">text</span><span style="font-size: 11px; color: #8FA39A">#E7EEE9 · 16.9:1</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 72px; border-radius: 6px; background: #B9C6BF"></div><span style="font-size: 12px">body</span><span style="font-size: 11px; color: #8FA39A">#B9C6BF · 11.3:1</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 72px; border-radius: 6px; background: #8FA39A"></div><span style="font-size: 12px">muted</span><span style="font-size: 11px; color: #8FA39A">#8FA39A · 7.5:1</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 72px; border-radius: 6px; background: #5B6B64"></div><span style="font-size: 12px">dim</span><span style="font-size: 11px; color: #8FA39A">#5B6B64 · 3.5:1 decor only</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 72px; border-radius: 6px; background: {{accent}}"></div><span style="font-size: 12px">phosphor</span><span style="font-size: 11px; color: #8FA39A">#5CF28A · 13.8:1</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 72px; border-radius: 6px; background: #F5B649"></div><span style="font-size: 12px">amber</span><span style="font-size: 11px; color: #8FA39A">#F5B649 · 11.1:1 · HEAD / incoming</span></div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px">
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8FA39A">02 · type · Syne 800 display, JetBrains Mono everything else</div>
+      <div style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 28px 32px; display: flex; flex-direction: column; gap: 22px">
+        <div style="display: flex; align-items: baseline; gap: 20px"><span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 96px; line-height: 0.88; letter-spacing: -0.035em; text-transform: uppercase">Mahir</span><span style="font-size: 11px; color: #8FA39A">display · 132 / 0.88 / −0.035em</span></div>
+        <div style="display: flex; align-items: baseline; gap: 20px"><span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 56px; line-height: 1; letter-spacing: -0.02em">Experience</span><span style="font-size: 11px; color: #8FA39A">h2 · 56 / 1 / −0.02em</span></div>
+        <div style="display: flex; align-items: baseline; gap: 20px"><span style="font-family: 'Syne', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em">Handshake AI</span><span style="font-size: 11px; color: #8FA39A">h3 · 26 / 700</span></div>
+        <div style="display: flex; align-items: baseline; gap: 20px"><span style="font-size: 15px; line-height: 1.7; color: #B9C6BF; max-width: 420px">Body copy sits in JetBrains Mono at 15px with 1.7 line height, never longer than 70 characters.</span><span style="font-size: 11px; color: #8FA39A; flex: none">body · 15 / 1.7</span></div>
+        <div style="display: flex; align-items: baseline; gap: 20px"><span style="font-size: 13px; font-weight: 500; color: {{accent}}">view source →</span><span style="font-size: 11px; color: #8FA39A">ui · 13 / 500</span></div>
+        <div style="display: flex; align-items: baseline; gap: 20px"><span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8FA39A">LeetCode contest rating</span><span style="font-size: 11px; color: #8FA39A">label · 11 / 0.12em / caps</span></div>
+        <div style="display: flex; align-items: baseline; gap: 20px"><span style="font-size: 13px"><span style="color: {{accent}}">mahir@nitj</span><span style="color: #5B6B64">:~$</span> whoami<span aria-hidden="true" style="display: inline-block; width: 8px; height: 15px; background: {{accent}}; vertical-align: -2px; margin-left: 6px; animation: mb-blink 1s steps(1) infinite"></span></span><span style="font-size: 11px; color: #8FA39A">prompt · 13 · cursor blinks 1s steps(1)</span></div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8FA39A">03 · components</div>
+      <div style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 28px 32px; display: flex; flex-direction: column; gap: 22px">
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+          <a href="#projects" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; background: {{accent}}; color: #07090B; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 4px">./projects <span aria-hidden="true">↓</span></a>
+          <a href="https://github.com/MAHIR-BABBAR" style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; border: 1px solid {{accentLine}}; color: {{accent}}; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 4px">github</a>
+          <button type="button" style="height: 44px; padding: 0 18px; background: transparent; border: 1px solid #1C2327; border-radius: 4px; color: #8FA39A; font-family: inherit; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">tertiary</button>
+          <span style="font-size: 11px; color: #8FA39A">buttons · 44px · radius 4 · magnetic within 60px</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+          <span style="font-size: 12px; color: #B9C6BF; border: 1px solid #1C2327; border-radius: 4px; padding: 6px 12px">Docker</span>
+          <span style="font-size: 12px; color: {{accent}}; border: 1px solid {{accent}}; border-radius: 4px; padding: 6px 12px">Docker · hover</span>
+          <span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: {{accent}}; border: 1px solid {{accentLine}}; border-radius: 3px; padding: 3px 8px">featured</span>
+          <span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #F5B649; border: 1px solid rgba(245,182,73,0.45); border-radius: 3px; padding: 3px 8px">incoming</span>
+          <span style="font-size: 11px; color: #8FA39A">chips · badges</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap">
+          <span style="font-size: 12px; letter-spacing: 0.14em; color: {{accent}}">03</span><span style="font-size: 12px; color: #5B6B64">/</span><span style="font-size: 13px; color: #8FA39A">$ ls -la ~/projects</span>
+          <span style="font-size: 11px; color: #8FA39A; margin-left: auto">section header · the command types in on enter</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap">
+          <span style="display: inline-flex; align-items: center; gap: 12px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid {{accent}}; background: #07090B; display: inline-block"></span><span style="font-size: 12px; color: {{accent}}">a3f9c1e</span></span>
+          <span style="display: inline-flex; align-items: center; gap: 12px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid #F5B649; background: #07090B; display: inline-block"></span><span style="font-size: 12px; color: #F5B649">HEAD → main</span></span>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 24px; color: {{accent}}">168</span><span style="font-size: 11px; color: #8FA39A; letter-spacing: 0.08em; text-transform: uppercase">tests · counts up</span></div>
+          <span style="font-size: 11px; color: #8FA39A; margin-left: auto">git nodes · metric</span>
+        </div>
+        <div style="border: 1px solid #1C2327; border-radius: 8px; overflow: hidden">
+          <div style="display: flex; align-items: center; border-bottom: 1px solid #1C2327; background: #0A0D10">
+            <span style="padding: 8px 14px; font-size: 12px; color: #E7EEE9; border-right: 1px solid #1C2327; background: #0D1114; border-top: 2px solid {{accent}}">about.md</span>
+            <span style="padding: 8px 14px; font-size: 12px; color: #5B6B64; border-right: 1px solid #1C2327">README</span>
+            <span style="margin-left: auto; padding: 8px 14px; font-size: 11px; color: #5B6B64">~/mahir · utf-8</span>
+          </div>
+          <div style="padding: 14px 16px; font-size: 13px; color: #B9C6BF">terminal window · tab bar, no traffic lights</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 24px">
+          <div style="position: relative; width: 56px; height: 40px">
+            <span aria-hidden="true" style="position: absolute; left: 20px; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: {{accent}}"></span>
+            <span aria-hidden="true" style="position: absolute; left: 6px; top: -2px; width: 34px; height: 34px; border-radius: 50%; border: 1px solid {{accentLine}}"></span>
+          </div>
+          <span style="font-size: 11px; color: #8FA39A">custom cursor · 6px dot + 34px ring, ring grows to 56px on links, mix-blend difference</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px">
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8FA39A">04 · spacing &amp; shape</div>
+      <div style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; font-size: 12px">
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #1C2327; padding-bottom: 8px"><span style="color: #8FA39A">container</span><span>1360 · gutters 40</span></div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #1C2327; padding-bottom: 8px"><span style="color: #8FA39A">section gap</span><span>120 (72 on phone)</span></div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #1C2327; padding-bottom: 8px"><span style="color: #8FA39A">card padding</span><span>32–40 (20 on phone)</span></div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #1C2327; padding-bottom: 8px"><span style="color: #8FA39A">radius</span><span>4 controls · 8 cards</span></div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #1C2327; padding-bottom: 8px"><span style="color: #8FA39A">borders</span><span>1px line, never shadows</span></div>
+        <div style="display: flex; justify-content: space-between"><span style="color: #8FA39A">touch targets</span><span>≥ 44px</span></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8FA39A">05 · motion</div>
+      <div style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; font-size: 12px">
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #1C2327; padding-bottom: 8px"><span style="color: #8FA39A">ease-out</span><span>cubic-bezier(.22, 1, .36, 1)</span></div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #1C2327; padding-bottom: 8px"><span style="color: #8FA39A">fast / base / reveal</span><span>150 / 250 / 700 ms</span></div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #1C2327; padding-bottom: 8px"><span style="color: #8FA39A">stagger</span><span>60 ms letters · 80 ms items</span></div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #1C2327; padding-bottom: 8px"><span style="color: #8FA39A">typing</span><span>28 ms / char, cursor steps(1)</span></div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #1C2327; padding-bottom: 8px"><span style="color: #8FA39A">card tilt</span><span>max 6°, spring 120 / 14</span></div>
+        <div style="display: flex; justify-content: space-between"><span style="color: #8FA39A">reduced motion</span><span>everything instant, no 3D</span></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8FA39A">06 · overlays</div>
+      <div style="background: #0D1114; border: 1px solid #1C2327; border-radius: 8px; padding: 22px 26px; display: flex; flex-direction: column; gap: 14px; font-size: 12px">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <div aria-hidden="true" style="width: 72px; height: 44px; border-radius: 4px; background: #07090B; border: 1px solid #1C2327; background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.5) 3px)"></div>
+          <span style="color: #B9C6BF">scanlines · 3px period · 55% · toggle in Tweaks</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <div aria-hidden="true" style="width: 72px; height: 44px; border-radius: 4px; border: 1px solid #1C2327; background: radial-gradient(ellipse at center, rgba(7,9,11,0) 30%, rgba(7,9,11,0.95) 100%)"></div>
+          <span style="color: #B9C6BF">vignette · radial, on the hero only</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <div aria-hidden="true" style="width: 72px; height: 44px; border-radius: 4px; border: 1px solid #1C2327; background-image: linear-gradient(rgba(143,163,154,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(143,163,154,0.12) 1px, transparent 1px); background-size: 12px 12px"></div>
+          <span style="color: #B9C6BF">floor grid · 48px, persists behind the page at 6%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#5CF28A","options":["#5CF28A","#F5B649","#5ED3F3"],"section":"Theme"},"$preview":{"width":1440,"height":1560}}'>
+class Component extends DCLogic {
+  hex(c) {
+    const m = /^#?([0-9a-f]{6})$/i.exec(String(c || '').trim());
+    const n = m ? parseInt(m[1], 16) : 0x5CF28A;
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#5CF28A';
+    const rgb = this.hex(accent);
+    return { accent: accent, accentLine: 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.45)' };
+  }
+}
+</script>
+</body>
+</html>

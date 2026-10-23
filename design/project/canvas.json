@@ -1,0 +1,22 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-10-10T06:40:00Z" },
+  "title": "Mahir Babbar Portfolio",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 5800, "title": "Desktop · full page (live hero field)", "expand": "fill", "is_interactive": true },
+    "Mobile.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 5600, "title": "Phone · 390", "expand": "fill" },
+    "Boot.dc.html": { "x": 1990, "y": 0, "w": 1440, "h": 900, "title": "Boot sequence (preloader, ~1.4s)" },
+    "Styleguide.dc.html": { "x": 1990, "y": 1020, "w": 1440, "h": 1560, "title": "Style guide · tokens, type, components" }
+  },
+  "order": ["Main.dc.html", "Mobile.dc.html", "Boot.dc.html", "Styleguide.dc.html"],
+  "notes": {
+    "t1": { "x": 0, "y": -300, "text": "Mahir Babbar — Terminal / Systems portfolio", "kind": "title1", "maxW": 3430 },
+    "n1": { "x": 3510, "y": 0, "w": 440, "fill": "green", "text": "3D · HERO CONTAINER FIELD\n\n9×4×4 wireframe cubes (the grader containers) on a floor grid. One draw call: merged edge geometry + custom line shader. Cursor → nearby cubes spin faster, scale up and glow phosphor. Signal pulses travel the rows like requests through the gateway.\n\nOn scroll the camera tilts down 25° and the field sinks under the About section, fading to the faint floor grid that persists behind the whole page (parallax 0.15).\n\nDPR capped at 1.5 on phones, 2 on desktop. Static poster + no WebGL when prefers-reduced-motion is on or WebGL is unavailable." },
+    "n2": { "x": 3510, "y": 760, "w": 440, "fill": "teal", "text": "MOTION CHOREOGRAPHY\n\n0. Boot: 6 terminal lines type in (~1.2s), progress bar fills, then a CRT power-on flash reveals the hero. Skippable with any key. Shown once per session.\n\n1. Hero: name letters decode (random glyphs → final) 60ms stagger; tagline types; cursor blinks.\n\n2. Every section header: the `$ command` types when it enters the viewport, then content reveals 24px up, 80ms stagger.\n\n3. Experience: the git graph line draws itself on scroll; commit nodes pop at each entry.\n\n4. Projects: cards tilt in 3D with the cursor (max 6°) with a glare highlight; schematics pulse on hover; test counters count up in view.\n\n5. Skills: a scan line sweeps the group as chips appear.\n\n6. Contact: email click copies, shows `copied ✓` for 1.6s. Footer ends on `exit 0`.\n\nCustom cursor: dot + ring, ring expands on links; buttons are magnetic within 60px." },
+    "n3": { "x": 3510, "y": 1700, "w": 440, "fill": "gray", "text": "ACCESSIBILITY · PERF\n\n• All text ≥ 4.5:1 on ink. Muted #8FA39A is 7.5:1.\n• Real <a> / <button>; focus rings in phosphor.\n• prefers-reduced-motion: no boot, no 3D, no typing; everything visible immediately.\n• 3D lazy-loaded after first paint; scene paused when hero is off-screen.\n• Phone number is NOT published; email only.\n• `~` key opens a mini terminal (help, ls, cat about, open github, theme amber)." },
+    "n4": { "x": 0, "y": -180, "w": 1440, "fill": "orange", "size": "l", "bold": true, "text": "SUPERSEDED — 23 Oct 2026. These boards are the first, terminal-themed version, which Mahir rejected. The built site is now a full 3D showpiece: deep indigo + electric violet + acid lime, Unbounded display type, an iridescent crystal floating in front of a giant 3D name, scroll-driven camera scenes, bloom and grain. See src/world in the repo; this canvas is kept for reference only." }
+  },
+  "designSystems": []
+}
