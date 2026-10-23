@@ -1,8 +1,10 @@
 # Mahir Babbar — portfolio
 
-A 3D showpiece: an iridescent crystal floats in front of a giant 3D name, the
-camera flies through keyframed scenes as you scroll, and the crystal morphs per
-project. Bloom, chromatic aberration, grain, glass panels, kinetic marquees.
+A 3D showpiece: a glowing network of nodes and links (the shape of a
+distributed system) turns behind a giant 3D name, the camera flies through
+keyframed scenes as you scroll, and the network re-forms per project: a cube
+lattice of containers, a retrieval ring, a jittering adversarial graph. Bloom,
+chromatic aberration, grain, glass panels, kinetic marquees.
 
 Stack: Vite · React 19 · Three.js via React Three Fiber + drei + postprocessing ·
 GSAP ScrollTrigger · Framer Motion (card tilt) · Lenis. No analytics, no trackers.
@@ -22,7 +24,7 @@ Every word on the site lives in `src/data/profile.js`. Components only render
 what they find there.
 
 Colours, type and spacing are CSS variables at the top of `src/styles/global.css`.
-The scroll choreography (camera, crystal position, morph, colour, dimming per
+The scroll choreography (camera, network position, shape, colour, dimming per
 section) is the keyframe list in `src/world/keyframes.js`; each keyframe is
 anchored to a section id, so adding a section means adding a keyframe.
 
@@ -45,7 +47,7 @@ and publish `dist/`.
 - The three.js bundle is lazy-loaded behind the intro; the render loop pauses
   while the tab is hidden. If the WebGL world fails to start on a device, the
   poster takes its place and the rest of the page keeps working. Device pixel ratio is capped at 1.5 on phones and
-  2 on desktop; phones get a lighter crystal and fewer particles.
+  2 on desktop; phones get a lighter network and fewer particles.
 - The name is also present as a screen-reader-only heading; all controls are
   real links and buttons with visible focus rings.
 

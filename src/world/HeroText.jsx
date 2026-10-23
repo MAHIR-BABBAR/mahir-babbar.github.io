@@ -5,7 +5,7 @@ import { heroCameraZ } from './keyframes.js'
 import { damp } from './damp.js'
 
 const FONT = `${import.meta.env.BASE_URL}fonts/Unbounded-Black.ttf`
-const TEXT_Z = -2.6
+const TEXT_Z = 0
 // "BABBAR" in Unbounded Black measures about 5.2 em wide
 const BABBAR_EM = 5.2
 

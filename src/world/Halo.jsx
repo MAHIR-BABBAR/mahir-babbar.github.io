@@ -30,9 +30,9 @@ export default function Halo({ look }) {
   useFrame((state) => {
     const t = state.clock.elapsedTime
     uniforms.uColor.value.setHSL(look.hue, 0.8, 0.5)
-    uniforms.uStrength.value = (0.45 + Math.sin(t * 1.1) * 0.08) * look.scale
+    uniforms.uStrength.value = (0.32 + Math.sin(t * 1.1) * 0.06) * look.scale
     if (mesh.current) {
-      mesh.current.scale.setScalar(7.5 * look.scale)
+      mesh.current.scale.setScalar(9 * look.scale)
       mesh.current.quaternion.copy(state.camera.quaternion)
     }
   })

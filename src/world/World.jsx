@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Environment, Lightformer } from '@react-three/drei'
 import { EffectComposer, Bloom, ChromaticAberration, Vignette, Noise } from '@react-three/postprocessing'
 import * as THREE from 'three'
-import Crystal from './Crystal.jsx'
+import Network from './Network.jsx'
 import Shards from './Shards.jsx'
 import Particles from './Particles.jsx'
 import HeroText from './HeroText.jsx'
@@ -28,8 +28,8 @@ function Rig({ progressRef, framesRef, pointer, look, mobile }) {
     const k = sampleKeyframes(frames, p)
     root.style.setProperty('--dim', k.dim.toFixed(3))
     // scene look values (lerped by consumers)
-    look.amp = k.amp
-    look.freq = k.freq
+    look.shape = k.shape
+    look.jitter = k.jitter
     look.speed = k.speed
     look.hue = k.hue
     look.scale = k.scale
@@ -72,10 +72,10 @@ function Scene({ progressRef, framesRef, pointer, look, mobile, reduced }) {
         <HeroText look={look} mobile={mobile} />
       </Suspense>
 
-      <group ref={crystalGroup}>
+      <group ref={crystalGroup} position={[0, 0, -3]}>
         <Halo look={look} />
-        <Crystal mobile={mobile} look={look} pointer={pointer} />
-        <Shards look={look} count={mobile ? 9 : 14} />
+        <Network look={look} pointer={pointer} mobile={mobile} />
+        <Shards look={look} count={mobile ? 6 : 9} radius={4.6} />
       </group>
 
       <Particles count={mobile ? 1200 : 2600} look={look} pointer={pointer} />
@@ -112,8 +112,8 @@ export default function World({ progressRef, framesRef, mobile, reduced, active 
   const pointer = useMemo(() => ({ x: 0, y: 0, tx: 0, ty: 0 }), [])
   const look = useMemo(
     () => ({
-      amp: 0.32,
-      freq: 1.1,
+      shape: 0,
+      jitter: 0,
       speed: 0.4,
       hue: 0.72,
       scale: 1,

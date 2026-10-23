@@ -17,7 +17,7 @@ export default function Shards({ count = 14, radius = 3.4, look }) {
       r: radius * (0.8 + rnd() * 0.5),
       tilt: (rnd() - 0.5) * 1.2,
       y: (rnd() - 0.5) * 2.2,
-      size: 0.14 + rnd() * 0.26,
+      size: 0.1 + rnd() * 0.18,
       spin: rnd() * 2,
     }))
   }, [count, radius])

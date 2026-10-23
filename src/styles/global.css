@@ -417,7 +417,7 @@ html.js.motion [data-reveal] {
   gap: 2px;
   padding: 4px;
   border-radius: 999px;
-  background: var(--glass);
+  background: rgba(6, 5, 15, 0.55);
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
